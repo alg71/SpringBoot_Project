@@ -1,0 +1,22 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS TuBaseDeDatos;
+
+-- Usar la base de datos
+USE TuBaseDeDatos;
+
+-- Crear la tabla TClientes
+CREATE TABLE TClientes (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Telefono VARCHAR(15)
+);
+
+-- Crear la tabla TServicios
+CREATE TABLE TServicios (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Cliente_Id INT,
+    Descripcion VARCHAR(255) NOT NULL,
+    Importe DOUBLE NOT NULL,
+    Fecha TIMESTAMP,
+    FOREIGN KEY (Cliente_Id) REFERENCES TClientes(Id) ON DELETE CASCADE
+);
